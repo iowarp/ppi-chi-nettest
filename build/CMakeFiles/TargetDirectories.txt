@@ -1,8 +1,0 @@
-/home/luke/Documents/Projects/chi-nettest/build/CMakeFiles/chi_net_bench.dir
-/home/luke/Documents/Projects/chi-nettest/build/CMakeFiles/chi_net_ping.dir
-/home/luke/Documents/Projects/chi-nettest/build/CMakeFiles/edit_cache.dir
-/home/luke/Documents/Projects/chi-nettest/build/CMakeFiles/rebuild_cache.dir
-/home/luke/Documents/Projects/chi-nettest/build/CMakeFiles/list_install_components.dir
-/home/luke/Documents/Projects/chi-nettest/build/CMakeFiles/install.dir
-/home/luke/Documents/Projects/chi-nettest/build/CMakeFiles/install/local.dir
-/home/luke/Documents/Projects/chi-nettest/build/CMakeFiles/install/strip.dir

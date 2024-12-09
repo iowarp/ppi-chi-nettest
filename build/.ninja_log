@@ -1,6 +1,0 @@
-# ninja log v5
-1	10133	1733751780703521530	CMakeFiles/chi_net_ping.dir/src/chi_net_ping.cc.o	a930030df0a2728d
-10135	10268	1733751780863521301	bin/chi_net_ping	9a8ab17988f2bf7b
-1	11612	1733751782182519411	CMakeFiles/chi_net_bench.dir/src/chi_net_bench.cc.o	eb1ed358d186f435
-11612	11737	1733751782333519195	bin/chi_net_bench	24231b6e715b6e59
-11737	11761	0	CMakeFiles/install.util	776bda9a31fe8903

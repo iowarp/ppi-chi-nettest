@@ -49,6 +49,7 @@ class TestRunner {
       try {
         if constexpr (ASYNC) {
           auto ret = CHI_THALLIUM->AsyncCall(node_id, "RpcPing", empty);
+          responses.emplace_back(std::move(ret));
         } else {
           CHI_THALLIUM->SyncCall<int>(node_id, "RpcPing", empty);
           ++count;

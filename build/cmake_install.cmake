@@ -1,4 +1,4 @@
-# Install script for directory: /home/luke/Documents/Projects/test-networks
+# Install script for directory: /home/luke/Documents/Projects/chi-nettest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -57,7 +57,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/luke/Documents/Projects/scspkg/packages/chi_nettest/bin" TYPE EXECUTABLE FILES "/home/luke/Documents/Projects/test-networks/build/bin/chi_net_bench")
+  file(INSTALL DESTINATION "/home/luke/Documents/Projects/scspkg/packages/chi_nettest/bin" TYPE EXECUTABLE FILES "/home/luke/Documents/Projects/chi-nettest/build/bin/chi_net_bench")
   if(EXISTS "$ENV{DESTDIR}/home/luke/Documents/Projects/scspkg/packages/chi_nettest/bin/chi_net_bench" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/luke/Documents/Projects/scspkg/packages/chi_nettest/bin/chi_net_bench")
     file(RPATH_CHANGE
@@ -71,7 +71,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/luke/Documents/Projects/test-networks/build/CMakeFiles/chi_net_bench.dir/install-cxx-module-bmi-Release.cmake" OPTIONAL)
+  include("/home/luke/Documents/Projects/chi-nettest/build/CMakeFiles/chi_net_bench.dir/install-cxx-module-bmi-Release.cmake" OPTIONAL)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -89,7 +89,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/luke/Documents/Projects/scspkg/packages/chi_nettest/bin" TYPE EXECUTABLE FILES "/home/luke/Documents/Projects/test-networks/build/bin/chi_net_ping")
+  file(INSTALL DESTINATION "/home/luke/Documents/Projects/scspkg/packages/chi_nettest/bin" TYPE EXECUTABLE FILES "/home/luke/Documents/Projects/chi-nettest/build/bin/chi_net_ping")
   if(EXISTS "$ENV{DESTDIR}/home/luke/Documents/Projects/scspkg/packages/chi_nettest/bin/chi_net_ping" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/luke/Documents/Projects/scspkg/packages/chi_nettest/bin/chi_net_ping")
     file(RPATH_CHANGE
@@ -103,7 +103,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/luke/Documents/Projects/test-networks/build/CMakeFiles/chi_net_ping.dir/install-cxx-module-bmi-Release.cmake" OPTIONAL)
+  include("/home/luke/Documents/Projects/chi-nettest/build/CMakeFiles/chi_net_ping.dir/install-cxx-module-bmi-Release.cmake" OPTIONAL)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -114,5 +114,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/luke/Documents/Projects/test-networks/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/luke/Documents/Projects/chi-nettest/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

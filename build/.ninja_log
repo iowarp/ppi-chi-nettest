@@ -1,11 +1,6 @@
 # ninja log v5
-1	10107	1733751447720952317	CMakeFiles/chi_net_ping.dir/src/chi_net_ping.cc.o	637c39fa7c67f0c7
-10108	10228	1733751447864952156	bin/chi_net_ping	9a8ab17988f2bf7b
-1	11510	1733751449124950741	CMakeFiles/chi_net_bench.dir/src/chi_net_bench.cc.o	b9d4504b1b7a21c2
-11510	11632	1733751449267950580	bin/chi_net_bench	24231b6e715b6e59
-4	28	0	CMakeFiles/install.util	bf13d642a757a8bb
-5	10040	1733751616198747124	CMakeFiles/chi_net_ping.dir/src/chi_net_ping.cc.o	191e40d341738f9b
-10041	10165	1733751616345746933	bin/chi_net_ping	9a8ab17988f2bf7b
-5	11530	1733751617682745188	CMakeFiles/chi_net_bench.dir/src/chi_net_bench.cc.o	6660e611a9053cb1
-11530	11656	1733751617836744987	bin/chi_net_bench	24231b6e715b6e59
-11657	11682	0	CMakeFiles/install.util	bf13d642a757a8bb
+1	10133	1733751780703521530	CMakeFiles/chi_net_ping.dir/src/chi_net_ping.cc.o	a930030df0a2728d
+10135	10268	1733751780863521301	bin/chi_net_ping	9a8ab17988f2bf7b
+1	11612	1733751782182519411	CMakeFiles/chi_net_bench.dir/src/chi_net_bench.cc.o	eb1ed358d186f435
+11612	11737	1733751782333519195	bin/chi_net_bench	24231b6e715b6e59
+11737	11761	0	CMakeFiles/install.util	776bda9a31fe8903

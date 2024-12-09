@@ -119,7 +119,8 @@ class ThalliumRpc {
     for (thallium::async_response &resp : responses) {
       Wait<int>(resp);
     }
-    StopThisDaemon();
+    // StopThisDaemon();
+    exit(1);
   }
 
   /** Thallium-compatible server name */

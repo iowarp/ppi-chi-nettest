@@ -92,9 +92,13 @@ class ThalliumRpc {
 
   /** Stop daemon rpc */
   void RpcStopDaemon(const tl::request &req) {
-    req.respond(0);
-    StopThisDaemon();
     HILOG(kInfo, "(node {})", rpc_->node_id_);
+    req.respond(0);
+    try {
+      StopThisDaemon();
+    } catch (...) {
+      HELOG(kError, "Failed to stop daemon");
+    }
   }
 
   /** Stop all daemons */

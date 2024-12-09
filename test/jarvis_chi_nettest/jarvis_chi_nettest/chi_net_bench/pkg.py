@@ -165,7 +165,7 @@ class ChiNetBench(Service):
             self.config['test'],
             self.config['_host_file'],
             self.config['_domain'],
-            self.config['_protocol'],
+            self.config['_protocol'].replace(';', '\;'),
             self.config['_port'],
             self.config['_rpc_threads'],
             self.config['io_size'],

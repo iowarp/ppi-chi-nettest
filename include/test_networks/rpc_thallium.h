@@ -105,15 +105,17 @@ class ThalliumRpc {
   void StopAllDaemons(NodeId last_node = 1) {
     std::vector<thallium::async_response> responses;
     responses.reserve(rpc_->NumHosts());
-    for (NodeId node_id = 1;
-         node_id <= rpc_->NumHosts() && node_id != last_node; ++node_id) {
+    for (NodeId node_id = 1; node_id <= rpc_->NumHosts(); ++node_id) {
+      if (node_id == last_node) {
+        continue;
+      }
       auto ret = AsyncCall(node_id, "RpcStopDaemon");
       responses.emplace_back(std::move(ret));
     }
     for (thallium::async_response &resp : responses) {
       Wait<int>(resp);
     }
-    exit(1);
+    StopThisDaemon();
   }
 
   /** Thallium-compatible server name */

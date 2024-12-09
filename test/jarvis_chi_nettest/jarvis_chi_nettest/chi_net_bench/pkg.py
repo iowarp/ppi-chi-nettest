@@ -173,7 +173,7 @@ class ChiNetBench(Service):
             self.config['rep'],
             self.config['sleep']
         ]
-        cmd = ' '.join([f'\"{str(c)}\"' for c in cmd])
+        cmd = ' '.join([f'\'{str(c)}\'' for c in cmd])
         self.log(cmd, Color.YELLOW)
         self.daemon_pkg = Exec(cmd,
                                 PsshExecInfo(hostfile=self.hostfile,

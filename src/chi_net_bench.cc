@@ -31,13 +31,13 @@ class TestRunner {
     HILOG(kDebug, "");
     xfer.AllocateBulksServer();
     CHI_THALLIUM->IoCallServerWrite(req, bulk, xfer);
-    req.respond(0);
+    req.respond((int)0);
   }
 
   /** An empty ping */
   void RpcPing(const tl::request &req, const std::string &md) {
     HILOG(kDebug, "");
-    req.respond(0);
+    req.respond((int)0);
   }
 
   /** Ping every node */

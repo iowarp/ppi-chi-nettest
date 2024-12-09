@@ -175,6 +175,7 @@ class ChiNetBench(Service):
         ]
         cmd = ' '.join([f'\'{str(c)}\'' for c in cmd])
         self.log(cmd, Color.YELLOW)
+        self.jutil.debug_local_exec = True
         self.daemon_pkg = Exec(cmd,
                                 PsshExecInfo(hostfile=self.hostfile,
                                              env=self.mod_env,
@@ -183,6 +184,7 @@ class ChiNetBench(Service):
                                              hide_output=self.config['hide_output'],
                                              pipe_stdout=self.config['stdout'],
                                              pipe_stderr=self.config['stderr']))
+        self.jutil.debug_local_exec = False
 
     def stop(self):
         """

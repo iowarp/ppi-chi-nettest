@@ -63,6 +63,10 @@ class ThalliumRpc {
           tl::xstream::create(tl::scheduler::predef::deflt, *rpc_pool_); 
       rpc_xstreams_.push_back(std::move(es));
     }
+    RegisterRpc(*rpc_pool_, "RpcStopDaemon",
+                [this](const tl::request &req) {
+                  RpcStopDaemon(req);
+                });
     HILOG(kInfo, "(node {}) Daemon has started", rpc_->node_id_);
     ClientInit(rpc);
   }

@@ -52,7 +52,7 @@ class ServerConfig {
   std::string test_;
 
  public:
-  void ServerInit(int argc, char **argv) {
+  void BenchmarkInit(int argc, char **argv) {
     if (argc != 11) {
       HELOG(kFatal,
             "Only got {}/10 params. "
@@ -88,11 +88,11 @@ class ServerConfig {
     sleep_ = hshm::ConfigParse::ParseSize(argv[opt++]);
   }
 
-  void ClientInit(int argc, char **argv) {
-    if (argc != 5) {
+  void PingInit(int argc, char **argv) {
+    if (argc != 3) {
       HELOG(kFatal,
-            "Only got {}/5 params. "
-            "Usage: <hostfile> <domain> <protocol> <port>",
+            "Only got {}/3 params. "
+            "Usage: <hostfile> <port>",
             argc);
     }
     int opt = 1;
@@ -104,10 +104,6 @@ class ServerConfig {
       rpc_.host_names_.emplace_back("localhost");
     }
     // argv[2]
-    rpc_.domain_ = argv[opt++];
-    // argv[3]
-    rpc_.protocol_ = argv[opt++];
-    // argv[4]
     rpc_.port_ = atoi(argv[opt++]);
   }
 };

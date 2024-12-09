@@ -1786,3 +1786,960 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-jSLrb4"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-jSLrb4"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-jSLrb4'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_35cde
+        [1/2] /usr/bin/cc  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include  -o CMakeFiles/cmTC_35cde.dir/test_mpi.c.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-jSLrb4/test_mpi.c
+        [2/2] : && /usr/bin/cc  -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_35cde.dir/test_mpi.c.o -o cmTC_35cde  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-euntH1"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-euntH1"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-euntH1'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_70f51
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_70f51.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-euntH1/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_70f51.dir/test_mpi.cpp.o -o cmTC_70f51  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-sM3U2s"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-sM3U2s"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-sM3U2s'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_5fc39
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_5fc39.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-sM3U2s/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_5fc39.dir/test_mpi.cpp.o -o cmTC_5fc39  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-E7d5aI"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-E7d5aI"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-E7d5aI'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_4fc4e
+        [1/2] /usr/bin/cc  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include  -o CMakeFiles/cmTC_4fc4e.dir/test_mpi.c.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-E7d5aI/test_mpi.c
+        [2/2] : && /usr/bin/cc  -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_4fc4e.dir/test_mpi.c.o -o cmTC_4fc4e  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-Mg7RuH"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-Mg7RuH"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-Mg7RuH'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_2df43
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_2df43.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-Mg7RuH/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_2df43.dir/test_mpi.cpp.o -o cmTC_2df43  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-TE8uGE"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-TE8uGE"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-TE8uGE'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_70df2
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_70df2.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-TE8uGE/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_70df2.dir/test_mpi.cpp.o -o cmTC_70df2  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-PN3OvN"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-PN3OvN"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-PN3OvN'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_383c6
+        [1/2] /usr/bin/cc  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include  -o CMakeFiles/cmTC_383c6.dir/test_mpi.c.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-PN3OvN/test_mpi.c
+        [2/2] : && /usr/bin/cc  -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_383c6.dir/test_mpi.c.o -o cmTC_383c6  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-vxSE8H"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-vxSE8H"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-vxSE8H'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_86179
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_86179.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-vxSE8H/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_86179.dir/test_mpi.cpp.o -o cmTC_86179  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-ID4DXO"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-ID4DXO"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-ID4DXO'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_e1f28
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_e1f28.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-ID4DXO/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_e1f28.dir/test_mpi.cpp.o -o cmTC_e1f28  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-NSNQVB"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-NSNQVB"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-NSNQVB'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_17b7a
+        [1/2] /usr/bin/cc  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include  -o CMakeFiles/cmTC_17b7a.dir/test_mpi.c.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-NSNQVB/test_mpi.c
+        [2/2] : && /usr/bin/cc  -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_17b7a.dir/test_mpi.c.o -o cmTC_17b7a  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-bmvEen"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-bmvEen"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-bmvEen'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_fbe35
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_fbe35.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-bmvEen/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_fbe35.dir/test_mpi.cpp.o -o cmTC_fbe35  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-2nF41P"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-2nF41P"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-2nF41P'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_e95d5
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_e95d5.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-2nF41P/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_e95d5.dir/test_mpi.cpp.o -o cmTC_e95d5  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-XhpLyf"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-XhpLyf"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-XhpLyf'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_621b8
+        [1/2] /usr/bin/cc  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include  -o CMakeFiles/cmTC_621b8.dir/test_mpi.c.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-XhpLyf/test_mpi.c
+        [2/2] : && /usr/bin/cc  -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_621b8.dir/test_mpi.c.o -o cmTC_621b8  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-wY43wm"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-wY43wm"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-wY43wm'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_9d52b
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_9d52b.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-wY43wm/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_9d52b.dir/test_mpi.cpp.o -o cmTC_9d52b  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-joNhyM"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-joNhyM"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-joNhyM'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_1a5e9
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_1a5e9.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-joNhyM/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_1a5e9.dir/test_mpi.cpp.o -o cmTC_1a5e9  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-f0g7Xc"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-f0g7Xc"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-f0g7Xc'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_72309
+        [1/2] /usr/bin/cc  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include  -o CMakeFiles/cmTC_72309.dir/test_mpi.c.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-f0g7Xc/test_mpi.c
+        [2/2] : && /usr/bin/cc  -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_72309.dir/test_mpi.c.o -o cmTC_72309  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-Rw6Vgw"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-Rw6Vgw"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-Rw6Vgw'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_29167
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_29167.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-Rw6Vgw/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_29167.dir/test_mpi.cpp.o -o cmTC_29167  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-1AnzzM"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-1AnzzM"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-1AnzzM'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_4b5eb
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_4b5eb.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-1AnzzM/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_4b5eb.dir/test_mpi.cpp.o -o cmTC_4b5eb  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-l4TFFK"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-l4TFFK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-l4TFFK'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_75c04
+        [1/2] /usr/bin/cc  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include  -o CMakeFiles/cmTC_75c04.dir/test_mpi.c.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-l4TFFK/test_mpi.c
+        [2/2] : && /usr/bin/cc  -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_75c04.dir/test_mpi.c.o -o cmTC_75c04  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-uG34YD"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-uG34YD"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-uG34YD'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_daca8
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_daca8.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-uG34YD/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_daca8.dir/test_mpi.cpp.o -o cmTC_daca8  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-JIXrQs"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-JIXrQs"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-JIXrQs'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_216a4
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_216a4.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-JIXrQs/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_216a4.dir/test_mpi.cpp.o -o cmTC_216a4  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-m7xRBd"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-m7xRBd"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-m7xRBd'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_57f00
+        [1/2] /usr/bin/cc  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include  -o CMakeFiles/cmTC_57f00.dir/test_mpi.c.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-m7xRBd/test_mpi.c
+        [2/2] : && /usr/bin/cc  -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_57f00.dir/test_mpi.c.o -o cmTC_57f00  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-gz4moD"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-gz4moD"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-gz4moD'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_35ad5
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_35ad5.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-gz4moD/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_35ad5.dir/test_mpi.cpp.o -o cmTC_35ad5  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-bcAWH1"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-bcAWH1"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-bcAWH1'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_77e88
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_77e88.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-bcAWH1/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_77e88.dir/test_mpi.cpp.o -o cmTC_77e88  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-i5EMUg"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-i5EMUg"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-i5EMUg'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_dd0d7
+        [1/2] /usr/bin/cc  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include  -o CMakeFiles/cmTC_dd0d7.dir/test_mpi.c.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-i5EMUg/test_mpi.c
+        [2/2] : && /usr/bin/cc  -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_dd0d7.dir/test_mpi.c.o -o cmTC_dd0d7  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-pMHJjE"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-pMHJjE"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-pMHJjE'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_9da59
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_9da59.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-pMHJjE/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_9da59.dir/test_mpi.cpp.o -o cmTC_9da59  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-N4oqKS"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-N4oqKS"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-N4oqKS'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_c997e
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_c997e.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-N4oqKS/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_c997e.dir/test_mpi.cpp.o -o cmTC_c997e  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-mxQ02z"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-mxQ02z"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-mxQ02z'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_00d18
+        [1/2] /usr/bin/cc  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include  -o CMakeFiles/cmTC_00d18.dir/test_mpi.c.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-mxQ02z/test_mpi.c
+        [2/2] : && /usr/bin/cc  -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_00d18.dir/test_mpi.c.o -o cmTC_00d18  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-eEzIrT"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-eEzIrT"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-eEzIrT'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_d366f
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_d366f.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-eEzIrT/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_d366f.dir/test_mpi.cpp.o -o cmTC_d366f  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-3EEACx"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-3EEACx"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-3EEACx'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_7505c
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_7505c.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-3EEACx/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_7505c.dir/test_mpi.cpp.o -o cmTC_7505c  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-qcNJ4G"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-qcNJ4G"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-qcNJ4G'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_87ea8
+        [1/2] /usr/bin/cc  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include  -o CMakeFiles/cmTC_87ea8.dir/test_mpi.c.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-qcNJ4G/test_mpi.c
+        [2/2] : && /usr/bin/cc  -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_87ea8.dir/test_mpi.c.o -o cmTC_87ea8  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-vclS8J"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-vclS8J"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-vclS8J'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_2d846
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_2d846.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-vclS8J/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_2d846.dir/test_mpi.cpp.o -o cmTC_2d846  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "/home/luke/Documents/Projects/scspkg/packages/hermes_shm/cmake/HermesShmConfig.cmake:102 (find_package)"
+      - "CMakeLists.txt:68 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-V1I39N"
+      binary: "/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-V1I39N"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -g -O0"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/catch2-3.0.1-qrxlgp2ww3na2f2bujmvbfiomauv7kwe/lib/cmake/Catch2"
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-V1I39N'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_85dda
+        [1/2] /usr/bin/c++  -isystem /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/include -g -O0  -std=gnu++17 -o CMakeFiles/cmTC_85dda.dir/test_mpi.cpp.o -c /home/luke/Documents/Projects/test-networks/build/CMakeFiles/CMakeScratch/TryCompile-V1I39N/test_mpi.cpp
+        [2/2] : && /usr/bin/c++ -g -O0 -Wl,-rpath -Wl,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib CMakeFiles/cmTC_85dda.dir/test_mpi.cpp.o -o cmTC_85dda  -Wl,-rpath,/home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib  /home/luke/Documents/Projects/spack/opt/spack/linux-linuxmint22-zen2/gcc-13.2.0/openmpi-5.0.3-c2uqih6ry5zotjxkgo3tgzxwude6qiqf/lib/libmpi.so && :
+        
+      exitCode: 0
+...

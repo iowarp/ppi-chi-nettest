@@ -1,5 +1,5 @@
-/home/luke/Documents/Projects/test-networks/build/CMakeFiles/start_chi_net_test.dir
-/home/luke/Documents/Projects/test-networks/build/CMakeFiles/stop_chi_net_test.dir
+/home/luke/Documents/Projects/test-networks/build/CMakeFiles/chi_net_bench.dir
+/home/luke/Documents/Projects/test-networks/build/CMakeFiles/chi_net_ping.dir
 /home/luke/Documents/Projects/test-networks/build/CMakeFiles/edit_cache.dir
 /home/luke/Documents/Projects/test-networks/build/CMakeFiles/rebuild_cache.dir
 /home/luke/Documents/Projects/test-networks/build/CMakeFiles/list_install_components.dir

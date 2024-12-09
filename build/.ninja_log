@@ -2,8 +2,10 @@
 4	3990	1733737499864109602	CMakeFiles/test_networks.dir/src/server_config.cc.o	8249a6d15ebb24cc
 4	5490	1733746838335642645	CMakeFiles/test_networks.dir/src/test_networks.cc.o	db256437c1820076
 5490	5656	1733746838516642159	bin/test_networks	798716f947b92aaa
-1	5791	1733747932974718005	CMakeFiles/start_chi_net_test.dir/src/start_chi_net_test.cc.o	4daf333c30f9f181
-4	4273	1733748067146360555	CMakeFiles/stop_chi_net_test.dir/src/stop_chi_net_test.cc.o	a9c7e00fdc027e07
-4273	4395	1733748067278360203	bin/stop_chi_net_test	935512df0f40573a
+3	5857	1733750510682871084	CMakeFiles/chi_net_bench.dir/src/chi_net_bench.cc.o	88bb87db8b39d5d9
 4	5818	1733748068683356461	CMakeFiles/start_chi_net_test.dir/src/start_chi_net_test.cc.o	4daf333c30f9f181
+4	4273	1733748067146360555	CMakeFiles/stop_chi_net_test.dir/src/stop_chi_net_test.cc.o	a9c7e00fdc027e07
 5818	5970	1733748068853356008	bin/start_chi_net_test	442932699f3ed1df
+4273	4395	1733748067278360203	bin/stop_chi_net_test	935512df0f40573a
+5857	6007	1733750510844871454	bin/chi_net_bench	80c886e7c68f80ee
+6007	6024	0	CMakeFiles/install.util	bf13d642a757a8bb

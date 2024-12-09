@@ -137,9 +137,8 @@ class TestRunner {
 }  // namespace chi
 
 int main(int argc, char **argv) {
-  chi::TestRunner runner;
   chi::ServerConfig info;
-  info.ServerInit(argc, argv);
+  info.BenchmarkInit(argc, argv);
   CHI_RPC->ServerInit(&info);
   try {
     CHI_THALLIUM->ServerInit(CHI_RPC);
@@ -155,6 +154,7 @@ int main(int argc, char **argv) {
       std::async(std::launch::async, []() { CHI_THALLIUM->RunDaemon(); });
   std::this_thread::sleep_for(std::chrono::seconds(info.sleep_));
   HILOG(kInfo, "Done sleeping!");
+  chi::TestRunner runner;
   if (CHI_RPC->node_id_ == 1) {
     if (info.test_ == "ping") {
       runner.PingAll<false>();
@@ -169,6 +169,7 @@ int main(int argc, char **argv) {
     } else if (info.test_ == "metadata_async") {
       runner.MetadataCalls<true>(info.md_size_, info.rep_);
     }
+    CHI_THALLIUM->StopAllDaemons();
   }
   daemon.wait();
 }

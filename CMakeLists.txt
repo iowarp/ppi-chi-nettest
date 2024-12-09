@@ -82,13 +82,13 @@ endif()
 # Compile the network tester
 #------------------------------------------------------------------------------
 include_directories(include)
-add_executable(start_chi_net_test
-        src/start_chi_net_test.cc)
-target_link_libraries(start_chi_net_test ${HermesShm_LIBRARIES} thallium)
+add_executable(chi_net_bench
+        src/chi_net_bench.cc)
+target_link_libraries(chi_net_bench ${HermesShm_LIBRARIES} thallium)
 
-add_executable(stop_chi_net_test
-        src/stop_chi_net_test.cc)
-target_link_libraries(stop_chi_net_test ${HermesShm_LIBRARIES} thallium)
+add_executable(chi_net_ping
+        src/chi_net_ping.cc)
+target_link_libraries(chi_net_ping ${HermesShm_LIBRARIES} thallium)
 
 
 #------------------------------------------------------------------------------
@@ -96,8 +96,8 @@ target_link_libraries(stop_chi_net_test ${HermesShm_LIBRARIES} thallium)
 #------------------------------------------------------------------------------
 install(
     TARGETS
-        start_chi_net_test
-        stop_chi_net_test
+        chi_net_bench
+        chi_net_ping
     DESTINATION
         ${CMAKE_INSTALL_PREFIX}/bin
 )

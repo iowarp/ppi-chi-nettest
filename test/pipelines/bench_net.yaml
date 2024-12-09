@@ -1,0 +1,13 @@
+name: bench_latency_ipc
+env: chi_nettest
+pkgs:
+  - pkg_type: chi_net_bench
+    pkg_name: chi_net_bench
+    test: ping
+    rpc_threads: 4
+    io_size: 1m
+    md_size: 4k
+    rep: 1
+    sleep: 5
+    do_dbg: true
+    dbg_port: 4000

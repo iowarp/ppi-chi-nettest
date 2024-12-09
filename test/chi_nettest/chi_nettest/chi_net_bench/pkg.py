@@ -61,7 +61,7 @@ class ChiNetBench(Service):
                 'rank': 1,
             },
             {
-                'name': 'num_rpcs',
+                'name': 'rpc_threads',
                 'msg': 'the mapping of rpc threads to cpus',
                 'type': int,
                 'default': 4,
@@ -96,9 +96,7 @@ class ChiNetBench(Service):
 
     def get_hostfile(self):
         self.hostfile = self.jarvis.hostfile
-        if self.config['num_nodes'] > 0 and self.hostfile.path is not None:
-            self.hostfile = Hostfile(hostfile=self.hostfile_path)
-
+        
     def _configure(self, **kwargs):
         """
         Converts the Jarvis configuration to application-specific configuration.
@@ -112,12 +110,6 @@ class ChiNetBench(Service):
 
         # Create hostfile
         self.hostfile = self.jarvis.hostfile
-        if self.config['num_nodes'] > 0 and self.hostfile.path is not None:
-            self.hostfile = self.hostfile.subset(self.config['num_nodes'])
-            self.hostfile.save(self.hostfile_path)
-
-        # Begin making chimaera_run config
-        chimaera_server = {}
         
         # Get network Info
         if len(self.hostfile) > 1:
@@ -156,7 +148,7 @@ class ChiNetBench(Service):
         self.config['new:protocol'] = protocol
         self.config['new:domain'] = domain
         self.config['new:port'] = self.config['port']
-        self.config['new:num_rpcs'] = self.config['num_rpcs']
+        self.config['new:rpc_threads'] = self.config['rpc_threads']
 
     def start(self):
         """
@@ -165,28 +157,27 @@ class ChiNetBench(Service):
 
         :return: None
         """
-        self.log(self.env['CHIMAERA_CONF'])
         self.get_hostfile()
         # <test> <hostfile> <domain> <protocol> <port> <num_threads>
         #    <io_size> <md_size> <rep> <sleep>
         cmd = [
-            'start_chi_net_test',
+            'chi_net_bench',
             self.config['test'],
             self.config['new:host_file'],
             self.config['new:domain'],
             self.config['new:protocol'],
             self.config['new:port'],
-            self.config['new:num_rpcs'],
+            self.config['new:rpc_threads'],
             self.config['io_size'],
             self.config['md_size'],
             self.config['rep'],
             self.config['sleep']
         ]
-        cmd = ' '.join([str(c) for c in cmd])
+        cmd = ' '.join([f'\"{str(c)}\"' for c in cmd])
+        self.log(cmd, Color.YELLOW)
         self.daemon_pkg = Exec(cmd,
                                 PsshExecInfo(hostfile=self.hostfile,
                                              env=self.mod_env,
-                                             exec_async=True,
                                              do_dbg=self.config['do_dbg'],
                                              dbg_port=self.config['dbg_port'],
                                              hide_output=self.config['hide_output'],
@@ -200,23 +191,11 @@ class ChiNetBench(Service):
 
         :return: None
         """
-        self.log('Stopping chimaera_run')
-        self.get_hostfile()
-        Exec('chimaera_stop_runtime',
-             LocalExecInfo(hostfile=self.hostfile,
-                           env=self.env,
-                           exec_async=False,
-                           # do_dbg=self.config['do_dbg'],
-                           # dbg_port=self.config['dbg_port'] + 2,
-                           hide_output=self.config['hide_output']))
-        self.log('Client Exited?')
-        if self.daemon_pkg is not None:
-            self.daemon_pkg.wait()
-        self.log('Daemon Exited?')
+        self.kill()
 
     def kill(self):
         self.get_hostfile()
-        Kill('.*chimaera.*',
+        Kill('.*chi_net_bench.*',
              PsshExecInfo(hostfile=self.hostfile,
                           env=self.env))
         self.log('Client Exited?')

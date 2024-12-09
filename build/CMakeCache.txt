@@ -118,7 +118,7 @@ CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/home/luke/Documents/Projects/test-networks/build/CMakeFiles/pkgRedirects
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=/home/luke/Documents/Projects/scspkg/packages/test_networks
+CMAKE_INSTALL_PREFIX:PATH=/home/luke/Documents/Projects/scspkg/packages/chi_nettest
 
 //Single Directory for all Libraries
 CMAKE_LIBRARY_OUTPUT_DIRECTORY:PATH=/home/luke/Documents/Projects/test-networks/build/bin

@@ -298,7 +298,7 @@ class ThalliumRpc {
 };
 
 #define CHI_THALLIUM hshm::EasySingleton<chi::ThalliumRpc>::GetInstance()
-#define CHI_RPC CHI_THALLIUM->rpc_
+#define CHI_RPC hshm::EasySingleton<chi::RpcContext>::GetInstance()
 
 }  // namespace hermes
 

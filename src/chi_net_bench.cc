@@ -41,6 +41,7 @@ class TestRunner {
   /** Ping every node */
   template<bool ASYNC>
   void PingAll() {
+    HILOG(kInfo, "");
     size_t count = 0;
     std::string empty;
     std::vector<thallium::async_response> responses;
@@ -72,6 +73,7 @@ class TestRunner {
   /** I/O Calls */
   template <bool ASYNC>
   void IoCalls(size_t md_size, size_t io_size, size_t rep) {
+    HILOG(kInfo, "");
     SegmentedTransfer xfer;
     xfer.md_ = std::string(md_size, 1);
     char *data = (char *)malloc(io_size);
@@ -108,6 +110,7 @@ class TestRunner {
   /** Metadata calls */
   template <bool ASYNC>
   void MetadataCalls(size_t md_size, int rep) {
+    HILOG(kInfo, "");
     std::string md(md_size, 1);
     hshm::Timer timer;
     timer.Resume();
@@ -169,6 +172,8 @@ int main(int argc, char **argv) {
       runner.MetadataCalls<false>(info.md_size_, info.rep_);
     } else if (info.test_ == "metadata_async") {
       runner.MetadataCalls<true>(info.md_size_, info.rep_);
+    } else {
+      HELOG(kError, "Unknown test: {}", info.test_);
     }
     CHI_THALLIUM->StopAllDaemons();
   }

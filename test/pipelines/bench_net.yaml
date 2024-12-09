@@ -7,7 +7,7 @@ pkgs:
     rpc_threads: 4
     io_size: 1m
     md_size: 4k
-    rep: 500
+    rep: 15
     sleep: 2
     do_dbg: false
     dbg_port: 4000

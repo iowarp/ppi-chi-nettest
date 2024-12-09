@@ -64,12 +64,6 @@ class SegmentedTransfer {
   std::vector<DataTransfer> bulk_; /**< Data payloads */
   std::string md_;                 /**< Metadata */
 
-  ~SegmentedTransfer() {
-    for (DataTransfer &xfer : bulk_) {
-      free(xfer.data_);
-    }
-  }
-
   void AllocateBulksServer() {
     for (DataTransfer &xfer : bulk_) { 
       xfer.data_ = malloc(xfer.data_size_);

@@ -144,11 +144,11 @@ class ChiNetBench(Service):
         if self.config['domain'] is not None:
             domain = self.config['domain']
         
-        self.config['new:host_file'] = hostfile_path
-        self.config['new:protocol'] = protocol
-        self.config['new:domain'] = domain
-        self.config['new:port'] = self.config['port']
-        self.config['new:rpc_threads'] = self.config['rpc_threads']
+        self.env['new_host_file'] = hostfile_path
+        self.env['new_protocol'] = protocol
+        self.env['new_domain'] = domain
+        self.env['new_port'] = self.config['port']
+        self.env['new_rpc_threads'] = self.config['rpc_threads']
 
     def start(self):
         """
@@ -163,11 +163,11 @@ class ChiNetBench(Service):
         cmd = [
             'chi_net_bench',
             self.config['test'],
-            self.config['new:host_file'],
-            self.config['new:domain'],
-            self.config['new:protocol'],
-            self.config['new:port'],
-            self.config['new:rpc_threads'],
+            self.env['new_host_file'],
+            self.env['new_domain'],
+            self.env['new_protocol'],
+            self.env['new_port'],
+            self.env['new_rpc_threads'],
             self.config['io_size'],
             self.config['md_size'],
             self.config['rep'],

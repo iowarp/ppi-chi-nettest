@@ -165,7 +165,7 @@ class ChiNetBench(Service):
             self.config['test'],
             self.config['_host_file'],
             self.config['_domain'],
-            self.config['_protocol'].replace(';', '\;'),
+            self.config['_protocol']
             self.config['_port'],
             self.config['_rpc_threads'],
             self.config['io_size'],
@@ -175,7 +175,7 @@ class ChiNetBench(Service):
         ]
         cmd = ' '.join([f'\'{str(c)}\'' for c in cmd])
         self.log(cmd, Color.YELLOW)
-        self.jutil.debug_local_exec = True
+        # self.jutil.debug_local_exec = True
         self.daemon_pkg = Exec(cmd,
                                 PsshExecInfo(hostfile=self.hostfile,
                                              env=self.mod_env,
@@ -184,7 +184,7 @@ class ChiNetBench(Service):
                                              hide_output=self.config['hide_output'],
                                              pipe_stdout=self.config['stdout'],
                                              pipe_stderr=self.config['stderr']))
-        self.jutil.debug_local_exec = False
+        # self.jutil.debug_local_exec = False
 
     def stop(self):
         """

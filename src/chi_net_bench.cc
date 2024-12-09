@@ -146,18 +146,8 @@ int main(int argc, char **argv) {
   chi::ServerConfig info;
   info.BenchmarkInit(argc, argv);
   CHI_RPC->ServerInit(&info);
-  try {
-    CHI_THALLIUM->ServerInit(CHI_RPC);
-  } catch (...) {
-    if (CHI_RPC->node_id_ == 0) {
-      HILOG(kFatal, "Failed to initialize server");
-    } else {
-      exit(1);
-    }
-  }
+  CHI_THALLIUM->ServerInit(CHI_RPC);
 
-  auto daemon =
-      std::async(std::launch::async, []() { CHI_THALLIUM->RunDaemon(); });
   std::this_thread::sleep_for(std::chrono::seconds(info.sleep_));
   HILOG(kInfo, "Done sleeping!");
   chi::TestRunner runner;
@@ -178,6 +168,7 @@ int main(int argc, char **argv) {
       HELOG(kError, "Unknown test: {}", info.test_);
     }
     CHI_THALLIUM->StopAllDaemons();
+  } else {
+    CHI_THALLIUM->RunDaemon();
   }
-  daemon.wait();
 }

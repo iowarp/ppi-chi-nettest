@@ -63,6 +63,7 @@ class ThalliumRpc {
           tl::xstream::create(tl::scheduler::predef::deflt, *rpc_pool_); 
       rpc_xstreams_.push_back(std::move(es));
     }
+    HILOG(kInfo, "(node {}) Daemon has started", rpc_->node_id_);
     ClientInit(rpc);
   }
 
@@ -79,7 +80,6 @@ class ThalliumRpc {
 
   /** Run the daemon */
   void RunDaemon() {
-    HILOG(kInfo, "(node {}) Daemon has started", rpc_->node_id_);
     server_engine_->wait_for_finalize();
     HILOG(kInfo, "(node {}) Daemon has stopped", rpc_->node_id_);
   }

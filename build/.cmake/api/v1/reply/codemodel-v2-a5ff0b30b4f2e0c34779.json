@@ -1,0 +1,70 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-3edb1b011723b2ee6f1c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "hermes_shm",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "start_chi_net_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-start_chi_net_test-Debug-528d8946d5c30ee76fa3.json",
+					"name" : "start_chi_net_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stop_chi_net_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stop_chi_net_test-Debug-dcfba505d032554daa9f.json",
+					"name" : "stop_chi_net_test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/luke/Documents/Projects/test-networks/build",
+		"source" : "/home/luke/Documents/Projects/test-networks"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

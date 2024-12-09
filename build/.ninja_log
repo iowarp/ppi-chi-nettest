@@ -1,7 +1,9 @@
 # ninja log v5
-4	3956	1733737471822181452	CMakeFiles/test_networks.dir/src/server_config.cc.o	fa460d5072e758a8
-4	2417	1733737441175260176	CMakeFiles/test_networks.dir/src/test_networks.cc.o	4218ebed50481769
-3956	4078	1733737471953181116	bin/test_networks	72189463e960c043
-3	2422	1733737498306113591	CMakeFiles/test_networks.dir/src/test_networks.cc.o	db256437c1820076
 4	3990	1733737499864109602	CMakeFiles/test_networks.dir/src/server_config.cc.o	8249a6d15ebb24cc
-3990	4109	1733737499992109275	bin/test_networks	72189463e960c043
+4	5490	1733746838335642645	CMakeFiles/test_networks.dir/src/test_networks.cc.o	db256437c1820076
+5490	5656	1733746838516642159	bin/test_networks	798716f947b92aaa
+1	5791	1733747932974718005	CMakeFiles/start_chi_net_test.dir/src/start_chi_net_test.cc.o	4daf333c30f9f181
+4	4273	1733748067146360555	CMakeFiles/stop_chi_net_test.dir/src/stop_chi_net_test.cc.o	a9c7e00fdc027e07
+4273	4395	1733748067278360203	bin/stop_chi_net_test	935512df0f40573a
+4	5818	1733748068683356461	CMakeFiles/start_chi_net_test.dir/src/start_chi_net_test.cc.o	4daf333c30f9f181
+5818	5970	1733748068853356008	bin/start_chi_net_test	442932699f3ed1df

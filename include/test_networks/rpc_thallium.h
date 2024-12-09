@@ -34,6 +34,8 @@ class ThalliumRpc {
   std::unique_ptr<tl::engine> client_engine_; /**< pointer to client engine */
   std::unique_ptr<tl::engine> server_engine_; /**< pointer to server engine */
   RpcContext *rpc_;
+  std::vector<tl::managed<tl::xstream>> rpc_xstreams_; /**< RPC streams */
+  tl::managed<tl::pool> rpc_pool_; /**< RPC pool */
 
   /** initialize RPC context  */
   ThalliumRpc() {}
@@ -54,6 +56,13 @@ class ThalliumRpc {
           rpc_server_name,
           addr,
           rpc->num_threads_);
+    // Create RPC worker threads
+    rpc_pool_ = tl::pool::create(tl::pool::access::mpmc);
+    for (int i = 0; i < rpc_->num_threads_; ++i) {
+      tl::managed<tl::xstream> es =
+          tl::xstream::create(tl::scheduler::predef::deflt, *rpc_pool_); 
+      rpc_xstreams_.push_back(std::move(es));
+    }
     ClientInit(rpc);
   }
 
@@ -81,6 +90,27 @@ class ThalliumRpc {
     server_engine_->finalize();
   }
 
+  /** Stop daemon rpc */
+  void RpcStopDaemon(const tl::request &req) {
+    req.respond(0);
+    StopThisDaemon();
+  }
+
+  /** Stop all daemons */
+  void StopAllDaemons(NodeId last_node = 1) {
+    std::vector<thallium::async_response> responses;
+    responses.reserve(rpc_->NumHosts());
+    for (NodeId node_id = 1;
+         node_id <= rpc_->NumHosts() && node_id != last_node; ++node_id) {
+      auto ret = AsyncCall(node_id, "RpcStopDaemon");
+      responses.emplace_back(std::move(ret));
+    }
+    for (thallium::async_response &resp : responses) {
+      Wait<int>(resp);
+    }
+    StopThisDaemon();
+  }
+
   /** Thallium-compatible server name */
   std::string GetServerName(NodeId node_id) {
     std::string ip_address = rpc_->GetIpAddressFromNodeId(node_id);
@@ -99,25 +129,19 @@ class ThalliumRpc {
   template <typename RetT, bool ASYNC, typename... Args>
   RetT Call(NodeId node_id, const std::string &func_name, Args&&... args) {
     HILOG(kDebug, "Calling {} {} -> {}", func_name, rpc_->node_id_, node_id)
-    try {
-      std::string server_name = GetServerName(node_id);
-      tl::remote_procedure remote_proc = client_engine_->define(func_name);
-      tl::endpoint server = client_engine_->lookup(server_name);
-      if constexpr(!ASYNC) {
-        if constexpr (std::is_same<RetT, void>::value) {
-          remote_proc.disable_response();
-          remote_proc.on(server)(std::forward<Args>(args)...);
-        } else {
-          RetT result = remote_proc.on(server)(std::forward<Args>(args)...);
-          return result;
-        }
+    std::string server_name = GetServerName(node_id);
+    tl::remote_procedure remote_proc = client_engine_->define(func_name);
+    tl::endpoint server = client_engine_->lookup(server_name);
+    if constexpr(!ASYNC) {
+      if constexpr (std::is_same<RetT, void>::value) {
+        remote_proc.disable_response();
+        remote_proc.on(server)(std::forward<Args>(args)...);
       } else {
-        return remote_proc.on(server).async(std::forward<Args>(args)...);
+        RetT result = remote_proc.on(server)(std::forward<Args>(args)...);
+        return result;
       }
-    } catch (tl::margo_exception &err) {
-      HELOG(kFatal, "(node {} -> {}) Thallium failed on function: {}: {}",
-            rpc_->node_id_, node_id, func_name, err.what())
-      exit(1);
+    } else {
+      return remote_proc.on(server).async(std::forward<Args>(args)...);
     }
   }
 
@@ -191,32 +215,26 @@ class ThalliumRpc {
   RetT IoCall(i32 node_id, const std::string &func_name,
               const SegmentedTransfer &xfer, u32 io_flag, Args&& ...args) {
     HILOG(kDebug, "Calling {} {} -> {}", func_name, rpc_->node_id_, node_id)
-    try {
-      std::string server_name = GetServerName(node_id);
-      tl::bulk bulk;
-      size_t planned_bytes;
-      bulk = MakeBulkClient(
-          xfer.bulk_, io_flag, planned_bytes);
-      tl::remote_procedure remote_proc =
-          client_engine_->define(func_name);
-      tl::endpoint server = client_engine_->lookup(server_name);
-      if constexpr (!ASYNC) {
-        if constexpr (std::is_same_v<RetT, void>) {
-          remote_proc.disable_response();
-          remote_proc.on(server)(bulk, xfer,
-              std::forward<Args>(args)...);
-        } else {
-          return remote_proc.on(server)(bulk, xfer,
-              std::forward<Args>(args)...);
-        }
+    std::string server_name = GetServerName(node_id);
+    tl::bulk bulk;
+    size_t planned_bytes;
+    bulk = MakeBulkClient(
+        xfer.bulk_, io_flag, planned_bytes);
+    tl::remote_procedure remote_proc =
+        client_engine_->define(func_name);
+    tl::endpoint server = client_engine_->lookup(server_name);
+    if constexpr (!ASYNC) {
+      if constexpr (std::is_same_v<RetT, void>) {
+        remote_proc.disable_response();
+        remote_proc.on(server)(bulk, xfer,
+            std::forward<Args>(args)...);
       } else {
-        return remote_proc.on(server).async(bulk, xfer,
-              std::forward<Args>(args)...);
+        return remote_proc.on(server)(bulk, xfer,
+            std::forward<Args>(args)...);
       }
-    } catch (tl::margo_exception &err) {
-      HELOG(kFatal, "(node {} -> {}) Thallium failed on function: {}: {}",
-            rpc_->node_id_, node_id, func_name, err.what())
-      exit(1);
+    } else {
+      return remote_proc.on(server).async(bulk, xfer,
+            std::forward<Args>(args)...);
     }
   }
 
@@ -279,20 +297,9 @@ class ThalliumRpc {
   }
 };
 
-}  // namespace hermes
+#define CHI_THALLIUM hshm::EasySingleton<chi::ThalliumRpc>::GetInstance()
+#define CHI_RPC CHI_THALLIUM->rpc_
 
-/** Lets thallium know how to serialize an enum */
-#define SERIALIZE_ENUM(T)\
-  template <typename A>\
-  void save(A &ar, T &mode) {\
-    int cast = static_cast<int>(mode);\
-    ar << cast;\
-  }\
-  template <typename A>\
-  void load(A &ar, T &mode) {\
-    int cast;\
-    ar >> cast;\
-    mode = static_cast<T>(cast);\
-  }
+}  // namespace hermes
 
 #endif  // CHIMAERA_RPC_THALLIUM_H_

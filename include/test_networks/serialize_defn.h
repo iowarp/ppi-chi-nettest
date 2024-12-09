@@ -62,6 +62,13 @@ class SegmentedTransfer {
  public:
   NodeId ret_node_;                /**< The node to return to */
   std::vector<DataTransfer> bulk_; /**< Data payloads */
+  std::string md_;                 /**< Metadata */
+
+  ~SegmentedTransfer() {
+    for (DataTransfer &xfer : bulk_) {
+      free(xfer.data_);
+    }
+  }
 
   void AllocateBulksServer() {
     for (DataTransfer &xfer : bulk_) { 
@@ -79,7 +86,7 @@ class SegmentedTransfer {
 
   template <typename Ar>
   void serialize(Ar &ar) {
-    ar(ret_node_, bulk_);
+    ar(ret_node_, md_, bulk_);
   }
 };
 

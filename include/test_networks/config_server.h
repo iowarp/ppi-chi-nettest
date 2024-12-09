@@ -36,29 +36,77 @@ struct RpcInfo {
   int port_;
   /** Number of RPC threads */
   int num_threads_;
-  /** CPU bindings for workers */
-  std::vector<u32> cpus_;
 };
 
 /**
  * System configuration for Hermes
  */
-class ServerConfig : public BaseConfig {
+class ServerConfig {
  public:
   /** The RPC information */
   RpcInfo rpc_;
-  /** Bootstrap task registry */
-  std::vector<std::string> modules_;
+  size_t io_size_;
+  size_t md_size_;
+  size_t rep_;
+  std::string test_;
 
  public:
-  ServerConfig() = default;
-  void LoadDefault();
+  void ServerInit(int argc, char **argv) {
+    if (argc != 10) {
+      HELOG(kFatal,
+            "Only got {}/10 params. "
+            "Usage: <test> <hostfile> <domain> <protocol> <port> <num_threads> "
+            "<io_size> <md_size> <rep>", argc);
+    }
+    int opt = 1;
+    // argv[1]
+    test_ = argv[opt++];
+    // argv[2]
+    rpc_.host_file_ =
+        hshm::ConfigParse::ExpandPath(argv[opt++]);
+    if (rpc_.host_file_.size() > 0) {
+      rpc_.host_names_ = hshm::ConfigParse::ParseHostfile(rpc_.host_file_);
+    } else {
+      rpc_.host_names_.emplace_back("localhost");
+    }
+    // argv[3]
+    rpc_.domain_ = argv[opt++];
+    // argv[4]
+    rpc_.protocol_ = argv[opt++];
+    // argv[5]
+    rpc_.port_ = atoi(argv[opt++]);
+    // argv[6]
+    rpc_.num_threads_ = atoi(argv[opt++]);
+    // argv[7]
+    io_size_ = hshm::ConfigParse::ParseSize(argv[opt++]);
+    // argv[8]
+    md_size_ = hshm::ConfigParse::ParseSize(argv[opt++]);
+    // argv[9]
+    rep_ = hshm::ConfigParse::ParseSize(argv[opt++]);
+  }
 
- private:
-  void ParseYAML(YAML::Node &yaml_conf);
-  void ParseWorkOrchestrator(YAML::Node yaml_conf);
-  void ParseQueueManager(YAML::Node yaml_conf);
-  void ParseRpcInfo(YAML::Node yaml_conf);
+  void ClientInit(int argc, char **argv) {
+    if (argc != 5) {
+      HELOG(kFatal,
+            "Only got {}/5 params. "
+            "Usage: <hostfile> <domain> <protocol> <port>",
+            argc);
+    }
+    int opt = 1;
+    // argv[1]
+    rpc_.host_file_ = hshm::ConfigParse::ExpandPath(argv[opt++]);
+    if (rpc_.host_file_.size() > 0) {
+      rpc_.host_names_ = hshm::ConfigParse::ParseHostfile(rpc_.host_file_);
+    } else {
+      rpc_.host_names_.emplace_back("localhost");
+    }
+    // argv[2]
+    rpc_.domain_ = argv[opt++];
+    // argv[3]
+    rpc_.protocol_ = argv[opt++];
+    // argv[4]
+    rpc_.port_ = atoi(argv[opt++]);
+  }
 };
 
 }  // namespace chi

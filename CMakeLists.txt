@@ -82,16 +82,22 @@ endif()
 # Compile the network tester
 #------------------------------------------------------------------------------
 include_directories(include)
-add_executable(test_networks
-        src/test_networks.cc src/server_config.cc)
-target_link_libraries(test_networks ${HermesShm_LIBRARIES} thallium)
+add_executable(start_chi_net_test
+        src/start_chi_net_test.cc)
+target_link_libraries(start_chi_net_test ${HermesShm_LIBRARIES} thallium)
+
+add_executable(stop_chi_net_test
+        src/stop_chi_net_test.cc)
+target_link_libraries(stop_chi_net_test ${HermesShm_LIBRARIES} thallium)
+
 
 #------------------------------------------------------------------------------
 # Install network tester
 #------------------------------------------------------------------------------
 install(
     TARGETS
-        test_networks
+        start_chi_net_test
+        stop_chi_net_test
     DESTINATION
         ${CMAKE_INSTALL_PREFIX}/bin
 )

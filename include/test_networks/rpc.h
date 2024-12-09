@@ -50,10 +50,10 @@ class RpcContext {
   int port_;  /**< port number */
   std::string protocol_;  /**< Libfabric provider */
   std::string domain_;    /**< Libfabric domain */
-  int num_threads_;       /**< Number of RPC threads */
   std::vector<HostInfo> hosts_;  /**< Hostname and ip addr per-node */
   size_t neighborhood_size_ = 32;
   u32 node_id_;
+  u32 num_threads_;
   ServerConfig *config_;
 
  public:
@@ -130,6 +130,11 @@ class RpcContext {
   /** Get RPC protocol */
   std::string GetProtocol() {
     return config_->rpc_.protocol_;
+  }
+
+  /** Number of hosts */
+  size_t NumHosts() {
+    return hosts_.size();
   }
 
  private:

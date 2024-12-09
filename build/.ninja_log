@@ -1,0 +1,7 @@
+# ninja log v5
+4	3956	1733737471822181452	CMakeFiles/test_networks.dir/src/server_config.cc.o	fa460d5072e758a8
+4	2417	1733737441175260176	CMakeFiles/test_networks.dir/src/test_networks.cc.o	4218ebed50481769
+3956	4078	1733737471953181116	bin/test_networks	72189463e960c043
+3	2422	1733737498306113591	CMakeFiles/test_networks.dir/src/test_networks.cc.o	db256437c1820076
+4	3990	1733737499864109602	CMakeFiles/test_networks.dir/src/server_config.cc.o	8249a6d15ebb24cc
+3990	4109	1733737499992109275	bin/test_networks	72189463e960c043

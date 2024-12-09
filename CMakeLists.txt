@@ -4,22 +4,9 @@ project(hermes_shm LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 
 #------------------------------------------------------------------------------
-# Global variables
-#------------------------------------------------------------------------------
-set(HERMES_SHM_VERSION_MAJOR 1)
-set(HERMES_SHM_VERSION_MINOR 1)
-set(HERMES_SHM_VERSION_PATCH 0)
-set(HERMES_SHM_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
-include_directories(${HERMES_SHM_ROOT}/include)
-
-#------------------------------------------------------------------------------
 # Options
 #------------------------------------------------------------------------------
 option(HERMES_RPC_THALLIUM "Build tests which depend on thallium" ON)
-
-if (HERMES_RPC_THALLIUM)
-    add_compile_definitions(HERMES_RPC_THALLIUM)
-endif()
 
 #------------------------------------------------------------------------------
 # Setup CMake Environment
@@ -51,14 +38,6 @@ if(NOT HERMES_INSTALL_DATA_DIR)
 endif()
 
 #------------------------------------------------------------------------------
-# CMake Modules
-#------------------------------------------------------------------------------
-if (NOT IS_HERMES_MAIN)
-    set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/CMake)
-    message(${CMAKE_MODULE_PATH})
-endif()
-
-#------------------------------------------------------------------------------
 # Optimization
 #------------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 17)
@@ -85,6 +64,12 @@ endif()
 # This is for compatability with SPACK
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
+# HermesShm
+find_package(HermesShm CONFIG REQUIRED)
+message(STATUS "found hermes_shm.h at ${HermesShm_INCLUDE_DIRS}")
+include_directories(${HermesShm_INCLUDE_DIRS})
+link_directories(${HermesShm_LIBRARY_DIRS})
+
 # thallium
 if(HERMES_RPC_THALLIUM)
     find_package(thallium CONFIG REQUIRED)
@@ -96,9 +81,10 @@ endif()
 #------------------------------------------------------------------------------
 # Compile the network tester
 #------------------------------------------------------------------------------
+include_directories(include)
 add_executable(test_networks
-        test_networks.cc)
-target_link_libraries(test_networks )
+        src/test_networks.cc src/server_config.cc)
+target_link_libraries(test_networks ${HermesShm_LIBRARIES} thallium)
 
 #------------------------------------------------------------------------------
 # Install network tester

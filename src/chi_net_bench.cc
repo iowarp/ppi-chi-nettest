@@ -28,6 +28,7 @@ class TestRunner {
   /** The RPC for processing a message with data */
   void RpcTaskSubmit(const tl::request &req, tl::bulk &bulk,
                      chi::SegmentedTransfer &xfer) {
+    HILOG(kDebug, "");
     xfer.AllocateBulksServer();
     CHI_THALLIUM->IoCallServerWrite(req, bulk, xfer);
     req.respond(0);
@@ -35,6 +36,7 @@ class TestRunner {
 
   /** An empty ping */
   void RpcPing(const tl::request &req, const std::string &md) {
+    HILOG(kDebug, "");
     req.respond(0);
   }
 

@@ -55,7 +55,7 @@ class ServerConfig {
   void BenchmarkInit(int argc, char **argv) {
     if (argc != 11) {
       HELOG(kFatal,
-            "Only got {}/10 params. "
+            "Only got {}/11 params. "
             "Usage: <test> <hostfile> <domain> <protocol> <port> <num_threads> "
             "<io_size> <md_size> <rep> <sleep>", argc);
     }

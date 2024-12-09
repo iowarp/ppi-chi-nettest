@@ -7,7 +7,7 @@ from jarvis_cd.basic.pkg import Service, Color
 from jarvis_util import *
 
 
-class ChiNettest(Service):
+class ChiNetBench(Service):
     """
     This class provides methods to launch the HermesRun service.
     """
@@ -28,6 +28,14 @@ class ChiNettest(Service):
         :return: List(dict)
         """
         return [
+            {
+                'name': 'test',
+                'msg': 'The test case to run',
+                'type': str,
+                'default': 'ping',
+                'class': 'communication',
+                'rank': 1,
+            },
             {
                 'name': 'port',
                 'msg': 'The port to listen for data on',
@@ -53,19 +61,36 @@ class ChiNettest(Service):
                 'rank': 1,
             },
             {
-                'name': 'rpc_cpus',
+                'name': 'num_rpcs',
                 'msg': 'the mapping of rpc threads to cpus',
-                'type': list,
-                'default': None,
+                'type': int,
+                'default': 4,
                 'class': 'communication',
                 'rank': 1,
-                'args': [
-                    {
-                        'name': 'cpu_id',
-                        'msg': 'An integer representing CPU ID',
-                        'type': int,
-                    }
-                ],
+            },
+            {
+                'name': 'io_size',
+                'msg': 'I/O size for the test',
+                'type': str,
+                'default': '1m',
+                'class': 'communication',
+                'rank': 1,
+            },
+            {
+                'name': 'md_size',
+                'msg': 'Metadata size for the test',
+                'type': str,
+                'default': '4k',
+                'class': 'communication',
+                'rank': 1,
+            },
+            {
+                'name': 'rep',
+                'msg': 'Number of repititions',
+                'type': int,
+                'default': 1,
+                'class': 'communication',
+                'rank': 1,
             },
         ]
 
@@ -92,8 +117,7 @@ class ChiNettest(Service):
             self.hostfile.save(self.hostfile_path)
 
         # Begin making chimaera_run config
-        chimaera_server = {
-        }
+        chimaera_server = {}
         
         # Get network Info
         if len(self.hostfile) > 1:
@@ -127,24 +151,12 @@ class ChiNettest(Service):
             domain = ''
         if self.config['domain'] is not None:
             domain = self.config['domain']
-        chimaera_server['rpc'] = {
-            'host_file': hostfile_path,
-            'protocol': protocol,
-            'domain': domain,
-            'port': self.config['port'],
-        }
-        if self.config['rpc_cpus'] is not None:
-            chimaera_server['rpc']['cpus'] = self.config['rpc_cpus']
-        if self.hostfile.path is None:
-            chimaera_server['rpc']['host_names'] = self.hostfile.hosts
-
-        # Add some initial modules to the registry
-        chimaera_server['module_registry'] = self.config['modules']
-
-        # Save Chimaera configuration
-        chimaera_server_yaml = f'{self.shared_dir}/chimaera_server.yaml'
-        YamlFile(chimaera_server_yaml).save(chimaera_server)
-        self.env['CHIMAERA_CONF'] = chimaera_server_yaml
+        
+        self.config['new:host_file'] = hostfile_path
+        self.config['new:protocol'] = protocol
+        self.config['new:domain'] = domain
+        self.config['new:port'] = self.config['port']
+        self.config['new:num_rpcs'] = self.config['num_rpcs']
 
     def start(self):
         """
@@ -155,7 +167,23 @@ class ChiNettest(Service):
         """
         self.log(self.env['CHIMAERA_CONF'])
         self.get_hostfile()
-        self.daemon_pkg = Exec('chimaera_start_runtime',
+        # <test> <hostfile> <domain> <protocol> <port> <num_threads>
+        #    <io_size> <md_size> <rep> <sleep>
+        cmd = [
+            'start_chi_net_test',
+            self.config['test'],
+            self.config['new:host_file'],
+            self.config['new:domain'],
+            self.config['new:protocol'],
+            self.config['new:port'],
+            self.config['new:num_rpcs'],
+            self.config['io_size'],
+            self.config['md_size'],
+            self.config['rep'],
+            self.config['sleep']
+        ]
+        cmd = ' '.join([str(c) for c in cmd])
+        self.daemon_pkg = Exec(cmd,
                                 PsshExecInfo(hostfile=self.hostfile,
                                              env=self.mod_env,
                                              exec_async=True,
@@ -164,8 +192,6 @@ class ChiNettest(Service):
                                              hide_output=self.config['hide_output'],
                                              pipe_stdout=self.config['stdout'],
                                              pipe_stderr=self.config['stderr']))
-        time.sleep(self.config['sleep'])
-        self.log('Done sleeping')
 
     def stop(self):
         """

@@ -153,6 +153,8 @@ int main(int argc, char **argv) {
 
   auto daemon =
       std::async(std::launch::async, []() { CHI_THALLIUM->RunDaemon(); });
+  std::this_thread::sleep_for(std::chrono::seconds(info.sleep_));
+  HILOG(kInfo, "Done sleeping!");
   if (CHI_RPC->node_id_ == 1) {
     if (info.test_ == "ping") {
       runner.PingAll<false>();

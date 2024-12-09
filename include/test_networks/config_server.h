@@ -48,15 +48,16 @@ class ServerConfig {
   size_t io_size_;
   size_t md_size_;
   size_t rep_;
+  size_t sleep_;
   std::string test_;
 
  public:
   void ServerInit(int argc, char **argv) {
-    if (argc != 10) {
+    if (argc != 11) {
       HELOG(kFatal,
             "Only got {}/10 params. "
             "Usage: <test> <hostfile> <domain> <protocol> <port> <num_threads> "
-            "<io_size> <md_size> <rep>", argc);
+            "<io_size> <md_size> <rep> <sleep>", argc);
     }
     int opt = 1;
     // argv[1]
@@ -83,6 +84,8 @@ class ServerConfig {
     md_size_ = hshm::ConfigParse::ParseSize(argv[opt++]);
     // argv[9]
     rep_ = hshm::ConfigParse::ParseSize(argv[opt++]);
+    // argv[10]
+    sleep_ = hshm::ConfigParse::ParseSize(argv[opt++]);
   }
 
   void ClientInit(int argc, char **argv) {

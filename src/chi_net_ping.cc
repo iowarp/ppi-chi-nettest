@@ -34,7 +34,7 @@ class TestRunner {
   }
 
   /** Ping every node */
-  template<bool ASYNC>
+  template <bool ASYNC>
   void PingAll() {
     size_t count = 0;
     std::string empty;

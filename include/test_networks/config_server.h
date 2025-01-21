@@ -50,6 +50,7 @@ class ServerConfig {
   size_t rep_;
   size_t sleep_;
   std::string test_;
+  bool server_;
 
  public:
   void BenchmarkInit(int argc, char **argv) {
@@ -57,14 +58,14 @@ class ServerConfig {
       HELOG(kFatal,
             "Only got {}/11 params. "
             "Usage: <test> <hostfile> <domain> <protocol> <port> <num_threads> "
-            "<io_size> <md_size> <rep> <sleep>", argc);
+            "<io_size> <md_size> <rep> <sleep>",
+            argc);
     }
     int opt = 1;
     // argv[1]
     test_ = argv[opt++];
     // argv[2]
-    rpc_.host_file_ =
-        hshm::ConfigParse::ExpandPath(argv[opt++]);
+    rpc_.host_file_ = hshm::ConfigParse::ExpandPath(argv[opt++]);
     if (rpc_.host_file_.size() > 0) {
       rpc_.host_names_ = hshm::ConfigParse::ParseHostfile(rpc_.host_file_);
     } else {
@@ -89,10 +90,10 @@ class ServerConfig {
   }
 
   void PingInit(int argc, char **argv) {
-    if (argc != 3) {
+    if (argc != 6) {
       HELOG(kFatal,
-            "Only got {}/3 params. "
-            "Usage: <hostfile> <port>",
+            "Only got {}/5 params. "
+            "Usage: <hostfile> <provider> <domain> <port> <mode>",
             argc);
     }
     int opt = 1;
@@ -104,7 +105,14 @@ class ServerConfig {
       rpc_.host_names_.emplace_back("localhost");
     }
     // argv[2]
+    rpc_.protocol_ = argv[opt++];
+    // argv[3]
+    rpc_.domain_ = argv[opt++];
+    // argv[4]
     rpc_.port_ = atoi(argv[opt++]);
+    // argv[5]
+    server_ = std::string(argv[opt++]) == "server";
+    rpc_.num_threads_ = 2;
   }
 };
 

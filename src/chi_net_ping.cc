@@ -50,6 +50,7 @@ class TestRunner {
           ++count;
         }
       } catch (tl::margo_exception &err) {
+        HELOG(kFatal, "Failed to ping node {}", node_id);
       }
     }
     if constexpr (ASYNC) {
@@ -59,6 +60,7 @@ class TestRunner {
           ++count;
         }
       } catch (tl::margo_exception &err) {
+        HELOG(kFatal, "Failed to ping node");
       }
     }
     HILOG(kInfo, "Pinged {} nodes", count);
@@ -73,17 +75,15 @@ int main(int argc, char **argv) {
   CHI_RPC->ServerInit(&info);
   CHI_THALLIUM->ServerInit(CHI_RPC);
 
-  std::this_thread::sleep_for(std::chrono::seconds(info.sleep_));
-  HILOG(kInfo, "Done sleeping!");
-  chi::TestRunner runner;
-  if (CHI_RPC->node_id_ == 1) {
+  if (info.server_) {
+    CHI_THALLIUM->RunDaemon();
+  } else if (CHI_RPC->node_id_ == 1) {
+    chi::TestRunner runner;
     if (info.test_ == "ping") {
       runner.PingAll<false>();
     } else if (info.test_ == "ping_async") {
       runner.PingAll<true>();
     }
     CHI_THALLIUM->StopAllDaemons();
-  } else {
-    CHI_THALLIUM->RunDaemon();
   }
 }

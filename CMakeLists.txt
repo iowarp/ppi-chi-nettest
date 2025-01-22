@@ -3,6 +3,8 @@ project(hermes_shm LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
+SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 # ------------------------------------------------------------------------------
 # Options
@@ -75,8 +77,12 @@ set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 # HermesShm
-find_package(HermesShm CONFIG REQUIRED)
-message("RPATH: ${CMAKE_INSTALL_RPATH}")
+# find_package(HermesShm CONFIG REQUIRED)
+# message("RPATH: ${CMAKE_INSTALL_RPATH}")
+add_subdirectory(hermes-shm)
+
+# Yaml-cpp
+find_package(yaml-cpp REQUIRED)
 
 # thallium
 if(HERMES_RPC_THALLIUM)
@@ -103,11 +109,11 @@ pkg_check_modules(libfabric REQUIRED libfabric)
 include_directories(include)
 add_executable(chi_net_bench
     src/chi_net_bench.cc)
-target_link_libraries(chi_net_bench hshm::cxx thallium)
+target_link_libraries(chi_net_bench thallium yaml-cpp cxx)
 
 add_executable(chi_net_ping
     src/chi_net_ping.cc)
-target_link_libraries(chi_net_ping hshm::cxx thallium)
+target_link_libraries(chi_net_ping thallium yaml-cpp cxx)
 
 # add_executable(fullping src/fullping.cc)
 # target_link_libraries(fullping ${libfabric_LIBRARIES} hshm::cxx)

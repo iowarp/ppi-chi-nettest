@@ -71,9 +71,8 @@ class ThalliumRpc {
     std::string protocol = rpc->GetProtocol();
     client_engine_ =
         std::make_unique<tl::engine>(protocol, THALLIUM_CLIENT_MODE, true, 1);
-    //    HILOG(kInfo, "This client is on node {} (i.e., {}, proto: {})",
-    //          rpc->node_id_, rpc->GetHostNameFromNodeId(rpc->node_id_),
-    //          protocol);
+    HILOG(kInfo, "This client is on node {} (i.e., {}, proto: {})",
+          rpc->node_id_, rpc->GetHostNameFromNodeId(rpc->node_id_), protocol);
   }
 
   /** Run the daemon */
@@ -104,16 +103,12 @@ class ThalliumRpc {
     std::vector<thallium::async_response> responses;
     responses.reserve(rpc_->NumHosts());
     for (NodeId node_id = 1; node_id <= rpc_->NumHosts(); ++node_id) {
-      if (node_id == last_node) {
-        continue;
-      }
       auto ret = AsyncCall(node_id, "RpcStopDaemon");
       responses.emplace_back(std::move(ret));
     }
     for (thallium::async_response &resp : responses) {
       Wait<int>(resp);
     }
-    StopThisDaemon();
   }
 
   /** Thallium-compatible server name */

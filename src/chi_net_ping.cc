@@ -12,7 +12,9 @@ namespace chi {
 
 class TestRunner {
  public:
-  TestRunner() {
+  TestRunner() {}
+
+  void ServerInit() {
     CHI_THALLIUM->RegisterRpc(
         *CHI_THALLIUM->rpc_pool_, "RpcPing",
         [this](const tl::request &req, const std::string &md) {
@@ -73,17 +75,26 @@ int main(int argc, char **argv) {
   chi::ServerConfig info;
   info.PingInit(argc, argv);
   CHI_RPC->ServerInit(&info);
-  CHI_THALLIUM->ServerInit(CHI_RPC);
+  chi::TestRunner runner;
+  hshm::File fd;
 
   if (info.server_) {
+    hshm::SystemInfo::DestroySharedMemory("nettest");
+    CHI_THALLIUM->ServerInit(CHI_RPC);
+    runner.ServerInit();
+    hshm::SystemInfo::CreateNewSharedMemory(fd, "nettest",
+                                            hshm::Unit<size_t>::Kilobytes(1));
     CHI_THALLIUM->RunDaemon();
   } else if (CHI_RPC->node_id_ == 1) {
-    chi::TestRunner runner;
-    if (info.test_ == "ping") {
-      runner.PingAll<false>();
-    } else if (info.test_ == "ping_async") {
-      runner.PingAll<true>();
+    if (!hshm::SystemInfo::OpenSharedMemory(fd, "nettest")) {
+      HELOG(kFatal,
+            "Server must not be started because shared memory is not "
+            "created");
     }
+    CHI_THALLIUM->ClientInit(CHI_RPC);
+    runner.PingAll<false>();
     CHI_THALLIUM->StopAllDaemons();
   }
+  HILOG(kInfo, "Test complete: {}", info.server_);
+  exit(0);
 }

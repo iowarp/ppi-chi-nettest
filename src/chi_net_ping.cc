@@ -53,6 +53,8 @@ class TestRunner {
         }
       } catch (tl::margo_exception &err) {
         HELOG(kFatal, "Failed to ping node {}", node_id);
+      } catch (...) {
+        HELOG(kFatal, "Failed to ping node");
       }
     }
     if constexpr (ASYNC) {
@@ -65,7 +67,6 @@ class TestRunner {
         HELOG(kFatal, "Failed to ping node");
       }
     }
-    HILOG(kInfo, "Pinged {} nodes", count);
   }
 };
 
@@ -77,24 +78,30 @@ int main(int argc, char **argv) {
   CHI_RPC->ServerInit(&info);
   chi::TestRunner runner;
   hshm::File fd;
+  std::string shm_name = hshm::Formatter::format("nettest_{}", CHI_RPC->port_);
+  try {
+    if (info.server_) {
+      hshm::SystemInfo::DestroySharedMemory(shm_name);
+      CHI_THALLIUM->ServerInit(CHI_RPC);
+      runner.ServerInit();
+      hshm::SystemInfo::CreateNewSharedMemory(fd, shm_name,
+                                              hshm::Unit<size_t>::Kilobytes(1));
+      CHI_THALLIUM->RunDaemon();
+    } else if (CHI_RPC->node_id_ == 1) {
+      if (!hshm::SystemInfo::OpenSharedMemory(fd, shm_name)) {
+        HELOG(kFatal,
+              "Server must not be started because shared memory is not "
+              "created");
+      }
+      CHI_THALLIUM->ClientInit(CHI_RPC);
+      runner.PingAll<false>();
+      CHI_THALLIUM->StopAllDaemons();
 
-  if (info.server_) {
-    hshm::SystemInfo::DestroySharedMemory("nettest");
-    CHI_THALLIUM->ServerInit(CHI_RPC);
-    runner.ServerInit();
-    hshm::SystemInfo::CreateNewSharedMemory(fd, "nettest",
-                                            hshm::Unit<size_t>::Kilobytes(1));
-    CHI_THALLIUM->RunDaemon();
-  } else if (CHI_RPC->node_id_ == 1) {
-    if (!hshm::SystemInfo::OpenSharedMemory(fd, "nettest")) {
-      HELOG(kFatal,
-            "Server must not be started because shared memory is not "
-            "created");
+      HILOG(kInfo, "Test complete: {}",
+            CHI_RPC->GetRpcAddress(1, CHI_RPC->port_));
+      hshm::SystemInfo::DestroySharedMemory(shm_name);
+      exit(0);
     }
-    CHI_THALLIUM->ClientInit(CHI_RPC);
-    runner.PingAll<false>();
-    CHI_THALLIUM->StopAllDaemons();
+  } catch (...) {
   }
-  HILOG(kInfo, "Test complete: {}", info.server_);
-  exit(0);
 }

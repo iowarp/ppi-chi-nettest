@@ -71,8 +71,8 @@ class ThalliumRpc {
     std::string protocol = rpc->GetProtocol();
     client_engine_ =
         std::make_unique<tl::engine>(protocol, THALLIUM_CLIENT_MODE, true, 1);
-    HILOG(kInfo, "This client is on node {} (i.e., {}, proto: {})",
-          rpc->node_id_, rpc->GetHostNameFromNodeId(rpc->node_id_), protocol);
+    HILOG(kInfo, "Client is on node {}: {}", rpc->node_id_,
+          rpc->GetRpcAddress(rpc->node_id_, rpc->port_));
   }
 
   /** Run the daemon */

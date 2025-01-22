@@ -9,7 +9,8 @@ SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 # ------------------------------------------------------------------------------
 # Options
 # ------------------------------------------------------------------------------
-option(HERMES_RPC_THALLIUM "Build tests which depend on thallium" ON)
+set(HSHM_RPC_THALLIUM ON)
+set(BUILD_HSHM_TESTS OFF)
 
 # ------------------------------------------------------------------------------
 # Setup CMake Environment
@@ -80,12 +81,13 @@ SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 # find_package(HermesShm CONFIG REQUIRED)
 # message("RPATH: ${CMAKE_INSTALL_RPATH}")
 add_subdirectory(hermes-shm)
+include_directories(hermes-shm/include)
 
 # Yaml-cpp
 find_package(yaml-cpp REQUIRED)
 
 # thallium
-if(HERMES_RPC_THALLIUM)
+if(HSHM_RPC_THALLIUM)
     find_package(thallium CONFIG REQUIRED)
 
     if(thallium_FOUND)

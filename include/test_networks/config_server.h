@@ -104,6 +104,7 @@ class ServerConfig {
     } else {
       rpc_.host_names_.emplace_back("localhost");
     }
+    printf("Hostfile is: %s\n", rpc_.host_file_.c_str());
     // argv[2]
     rpc_.protocol_ = argv[opt++];
     // argv[3]

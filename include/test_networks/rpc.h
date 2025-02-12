@@ -82,6 +82,14 @@ class RpcContext {
     if (node_id_ == 0 || node_id_ > (u32)hosts_.size()) {
       HELOG(kFatal, "Couldn't identify this host.");
     }
+    // Reset the node ids
+    if (config->local_only_) {
+      HostInfo this_host = hosts_[node_id_ - 1];
+      hosts_.clear();
+      this_host.node_id_ = 1;
+      node_id_ = 1;
+      hosts_.emplace_back(this_host);
+    }
   }
 
   /** get RPC address */

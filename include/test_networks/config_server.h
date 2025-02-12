@@ -51,6 +51,7 @@ class ServerConfig {
   size_t sleep_;
   std::string test_;
   bool server_;
+  bool local_only_ = false;
 
  public:
   void BenchmarkInit(int argc, char **argv) {
@@ -93,8 +94,8 @@ class ServerConfig {
     if (argc != 7) {
       HELOG(kFatal,
             "Only got {}/5 params. "
-            "Usage: <hostfile> <provider> <domain> <port> <client,server> "
-            "<local,all>",
+            "Usage: <hostfile> <provider> <domain> <port> <client, server> "
+            "<local, all>",
             argc - 1);
     }
     int opt = 1;
@@ -105,7 +106,6 @@ class ServerConfig {
     } else {
       rpc_.host_names_.emplace_back("localhost");
     }
-    printf("Hostfile is: %s\n", rpc_.host_file_.c_str());
     // argv[2]
     rpc_.protocol_ = argv[opt++];
     // argv[3]
@@ -115,6 +115,8 @@ class ServerConfig {
     // argv[5]
     server_ = std::string(argv[opt++]) == "server";
     rpc_.num_threads_ = 2;
+    // argv[6]
+    local_only_ = std::string(argv[opt++]) == "local";
   }
 };
 

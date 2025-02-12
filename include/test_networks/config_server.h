@@ -57,10 +57,10 @@ class ServerConfig {
   void BenchmarkInit(int argc, char **argv) {
     if (argc != 11) {
       HELOG(kFatal,
-            "Only got {}/11 params. "
+            "Only got {}/10 params. "
             "Usage: <test> <hostfile> <domain> <protocol> <port> <num_threads> "
             "<io_size> <md_size> <rep> <sleep>",
-            argc);
+            argc - 1);
     }
     int opt = 1;
     // argv[1]
@@ -93,7 +93,7 @@ class ServerConfig {
   void PingInit(int argc, char **argv) {
     if (argc != 7) {
       HELOG(kFatal,
-            "Only got {}/5 params. "
+            "Only got {}/6 params. "
             "Usage: <hostfile> <provider> <domain> <port> <client, server> "
             "<local, all>",
             argc - 1);

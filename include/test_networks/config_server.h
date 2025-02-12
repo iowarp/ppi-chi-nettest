@@ -90,11 +90,12 @@ class ServerConfig {
   }
 
   void PingInit(int argc, char **argv) {
-    if (argc != 6) {
+    if (argc != 7) {
       HELOG(kFatal,
             "Only got {}/5 params. "
-            "Usage: <hostfile> <provider> <domain> <port> <mode>",
-            argc);
+            "Usage: <hostfile> <provider> <domain> <port> <client,server> "
+            "<local,all>",
+            argc - 1);
     }
     int opt = 1;
     // argv[1]

@@ -1,3 +1,3 @@
 [submodule "hermes-shm"]
 	path = hermes-shm
-	url = https://github.com/grc-iit/hermes-shm.git
+	url = https://github.com/iowarp/cte-hermes-shm.git

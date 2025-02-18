@@ -1,0 +1,3 @@
+[submodule "cte-hermes-shm"]
+	path = cte-hermes-shm
+	url = ./cte-hermes-shm

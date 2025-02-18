@@ -81,7 +81,7 @@ SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 # find_package(HermesShm CONFIG REQUIRED)
 # message("RPATH: ${CMAKE_INSTALL_RPATH}")
 add_subdirectory(cte-hermes-shm)
-include_directories(hermes-shm/include)
+include_directories(cte-hermes-shm/include)
 
 # Yaml-cpp
 find_package(yaml-cpp REQUIRED)

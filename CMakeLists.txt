@@ -111,11 +111,11 @@ pkg_check_modules(libfabric REQUIRED libfabric)
 include_directories(include)
 add_executable(chi_net_bench
     src/chi_net_bench.cc)
-target_link_libraries(chi_net_bench thallium ${YAML_CPP_LIBRARIES} cxx)
+target_link_libraries(chi_net_bench thallium yaml-cpp::yaml-cpp cxx)
 
 add_executable(chi_net_ping
     src/chi_net_ping.cc)
-target_link_libraries(chi_net_ping thallium ${YAML_CPP_LIBRARIES} cxx)
+target_link_libraries(chi_net_ping thallium yaml-cpp::yaml-cpp cxx)
 
 # add_executable(fullping src/fullping.cc)
 # target_link_libraries(fullping ${libfabric_LIBRARIES} hshm::cxx)

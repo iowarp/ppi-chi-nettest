@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(hermes_shm LANGUAGES C CXX)
+project(chi_netping LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -8,9 +8,20 @@ SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 # ------------------------------------------------------------------------------
 # Options
-# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------'
+option(CHI_ENABLE_CMAKE_DOTENV "Load environment variables from .env.cmake" OFF)
+
 set(HSHM_RPC_THALLIUM ON)
 set(BUILD_HSHM_TESTS OFF)
+
+# ------------------------------------------------------------------------------
+# DOTENV
+# ------------------------------------------------------------------------------
+if(CHI_ENABLE_CMAKE_DOTENV)
+    if(EXISTS ${CMAKE_SOURCE_DIR}/.env.cmake)
+        include(.env.cmake)
+    endif()
+endif()
 
 # ------------------------------------------------------------------------------
 # Setup CMake Environment
@@ -74,6 +85,7 @@ endif()
 # External libraries
 # ------------------------------------------------------------------------------
 # This is for compatability with SPACK
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 

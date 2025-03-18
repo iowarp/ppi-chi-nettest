@@ -80,14 +80,17 @@ int main(int argc, char **argv) {
   hshm::File fd;
   std::string shm_name = hshm::Formatter::format("nettest_{}", CHI_RPC->port_);
   try {
-    if (info.server_) {
+    if (info.test_ == "server" || info.test_ == "touchserver") {
       hshm::SystemInfo::DestroySharedMemory(shm_name);
       CHI_THALLIUM->ServerInit(CHI_RPC);
       runner.ServerInit();
       hshm::SystemInfo::CreateNewSharedMemory(fd, shm_name,
                                               hshm::Unit<size_t>::Kilobytes(1));
+    }
+    if (info.test_ == "server") {
       CHI_THALLIUM->RunDaemon();
-    } else if (CHI_RPC->node_id_ == 1) {
+    }
+    if (info.test_ == "client" && CHI_RPC->node_id_ == 1) {
       if (!hshm::SystemInfo::OpenSharedMemory(fd, shm_name)) {
         HELOG(kFatal,
               "Server must not be started because shared memory is not "
@@ -103,5 +106,6 @@ int main(int argc, char **argv) {
       exit(0);
     }
   } catch (...) {
+    exit(1);
   }
 }

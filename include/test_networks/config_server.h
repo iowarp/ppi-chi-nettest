@@ -50,7 +50,6 @@ class ServerConfig {
   size_t rep_;
   size_t sleep_;
   std::string test_;
-  bool server_;
   bool local_only_ = false;
 
  public:
@@ -94,7 +93,8 @@ class ServerConfig {
     if (argc != 7) {
       HELOG(kFatal,
             "Only got {}/6 params. "
-            "Usage: <hostfile> <provider> <domain> <port> <client, server> "
+            "Usage: <hostfile> <provider> <domain> <port> <test (client, "
+            "server, touchserver)> "
             "<local, all>",
             argc - 1);
     }
@@ -113,7 +113,7 @@ class ServerConfig {
     // argv[4]
     rpc_.port_ = atoi(argv[opt++]);
     // argv[5]
-    server_ = std::string(argv[opt++]) == "server";
+    test_ = argv[opt++];
     rpc_.num_threads_ = 2;
     // argv[6]
     local_only_ = std::string(argv[opt++]) == "local";

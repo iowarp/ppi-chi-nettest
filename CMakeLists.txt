@@ -92,7 +92,13 @@ SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 # HermesShm
 # find_package(HermesShm CONFIG REQUIRED)
 # message("RPATH: ${CMAKE_INSTALL_RPATH}")
-add_subdirectory(cte-hermes-shm)
+set(HSHM_NO_COMPILE ON)
+set(HSHM_ENABLE_PROCFS_SYSINFO ON)
+set(HSHM_ENABLE_PTHREADS ON)
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/cte-hermes-shm/include/hermes_shm/constants/settings.h_templ
+    ${CMAKE_CURRENT_SOURCE_DIR}/cte-hermes-shm/include/hermes_shm/constants/settings.h @ONLY
+)
 include_directories(cte-hermes-shm/include)
 
 # Yaml-cpp
@@ -122,12 +128,14 @@ pkg_check_modules(libfabric REQUIRED libfabric)
 # ------------------------------------------------------------------------------
 include_directories(include)
 add_executable(chi_net_bench
-    src/chi_net_bench.cc)
-target_link_libraries(chi_net_bench thallium cxx host_deps)
+    src/chi_net_bench.cc
+    cte-hermes-shm/src/memory_manager.cc)
+target_link_libraries(chi_net_bench thallium yaml-cpp)
 
 add_executable(chi_net_ping
-    src/chi_net_ping.cc)
-target_link_libraries(chi_net_ping thallium cxx host_deps)
+    src/chi_net_ping.cc
+    cte-hermes-shm/src/memory_manager.cc)
+target_link_libraries(chi_net_ping thallium yaml-cpp)
 
 # add_executable(fullping src/fullping.cc)
 # target_link_libraries(fullping ${libfabric_LIBRARIES} hshm::cxx)

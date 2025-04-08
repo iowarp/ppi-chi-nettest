@@ -130,12 +130,12 @@ include_directories(include)
 add_executable(chi_net_bench
     src/chi_net_bench.cc
     cte-hermes-shm/src/memory_manager.cc)
-target_link_libraries(chi_net_bench thallium yaml-cpp)
+target_link_libraries(chi_net_bench thallium yaml-cpp rt dl)
 
 add_executable(chi_net_ping
     src/chi_net_ping.cc
     cte-hermes-shm/src/memory_manager.cc)
-target_link_libraries(chi_net_ping thallium yaml-cpp)
+target_link_libraries(chi_net_ping thallium yaml-cpp rt dl)
 
 # add_executable(fullping src/fullping.cc)
 # target_link_libraries(fullping ${libfabric_LIBRARIES} hshm::cxx)

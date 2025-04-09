@@ -20,7 +20,6 @@ std::string find_ip_from_fabric(const char* provider, const char* domain,
   hints = fi_allocinfo();
   hints->fabric_attr->prov_name = strdup(provider);
   hints->domain_attr->name = strdup(domain);
-  HILOG(kInfo, "{} {}", provider, domain);
 
   int ret = fi_getinfo(FI_VERSION(1, 9), NULL, NULL, 0, hints, &info);
   if (ret) {

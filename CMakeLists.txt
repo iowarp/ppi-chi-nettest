@@ -105,13 +105,16 @@ include_directories(cte-hermes-shm/include)
 find_package(yaml-cpp REQUIRED)
 
 # thallium
-if(HSHM_RPC_THALLIUM)
-    find_package(thallium CONFIG REQUIRED)
+find_package(thallium CONFIG REQUIRED)
 
-    if(thallium_FOUND)
-        message(STATUS "found thallium at ${thallium_DIR}")
-    endif()
+if(thallium_FOUND)
+    message(STATUS "found thallium at ${thallium_DIR}")
 endif()
+
+# mpi
+find_package(MPI REQUIRED COMPONENTS C CXX)
+set(MPI_LIBS MPI::MPI_CXX)
+message(STATUS "found mpi.h at ${MPI_CXX_INCLUDE_DIRS}")
 
 # pkgconifg
 find_package(PkgConfig REQUIRED)
@@ -137,6 +140,14 @@ add_executable(chi_net_ping
     cte-hermes-shm/src/memory_manager.cc)
 target_link_libraries(chi_net_ping thallium yaml-cpp rt dl)
 
+add_executable(chi_net_find
+    src/chi_net_find.cc
+    cte-hermes-shm/src/memory_manager.cc)
+target_link_libraries(chi_net_find thallium yaml-cpp rt dl MPI::MPI_CXX
+    ${libfabric_LIBRARIES})
+target_include_directories(chi_net_find PUBLIC ${libfabric_INCLUDE_DIRS})
+target_link_directories(chi_net_find PUBLIC ${libfabric_LIBRARY_DIRS})
+
 # add_executable(fullping src/fullping.cc)
 # target_link_libraries(fullping ${libfabric_LIBRARIES} hshm::cxx)
 # target_include_directories(fullping PUBLIC ${libfabric_INCLUDE_DIRS})
@@ -146,8 +157,7 @@ target_link_libraries(chi_net_ping thallium yaml-cpp rt dl)
 # ------------------------------------------------------------------------------
 install(
     TARGETS
-
-    # fullping
+    chi_net_find
     chi_net_bench
     chi_net_ping
     DESTINATION

@@ -42,9 +42,9 @@ configurations:
   - macro: debug
     launch-name: launch-server
     program: chi_net_ping
-    args: ["", tcp, enp5s0, 4192, server]
+    args: ["/home/llogan/hostfile.txt", tcp, enp5s0, 4192, touchserver, local]
   - macro: debug
     launch-name: launch-client
     program: chi_net_ping
-    args: ["", tcp, enp5s0, 4192, client]
+    args: ["", tcp, enp5s0, 4192, client, local]
     

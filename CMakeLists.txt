@@ -125,6 +125,8 @@ endif()
 
 # libfabric
 pkg_check_modules(libfabric REQUIRED libfabric)
+include_directories(chi_net_find PUBLIC ${libfabric_INCLUDE_DIRS})
+link_directories(chi_net_find PUBLIC ${libfabric_LIBRARY_DIRS})
 
 # ------------------------------------------------------------------------------
 # Compile the network tester
@@ -133,20 +135,20 @@ include_directories(include)
 add_executable(chi_net_bench
     src/chi_net_bench.cc
     cte-hermes-shm/src/memory_manager.cc)
-target_link_libraries(chi_net_bench thallium yaml-cpp rt dl)
+target_link_libraries(chi_net_bench thallium yaml-cpp rt dl
+    ${libfabric_LIBRARIES})
 
 add_executable(chi_net_ping
     src/chi_net_ping.cc
     cte-hermes-shm/src/memory_manager.cc)
-target_link_libraries(chi_net_ping thallium yaml-cpp rt dl)
+target_link_libraries(chi_net_ping thallium yaml-cpp rt dl
+    ${libfabric_LIBRARIES})
 
 add_executable(chi_net_find
     src/chi_net_find.cc
     cte-hermes-shm/src/memory_manager.cc)
 target_link_libraries(chi_net_find thallium yaml-cpp rt dl MPI::MPI_CXX
     ${libfabric_LIBRARIES})
-target_include_directories(chi_net_find PUBLIC ${libfabric_INCLUDE_DIRS})
-target_link_directories(chi_net_find PUBLIC ${libfabric_LIBRARY_DIRS})
 
 # add_executable(fullping src/fullping.cc)
 # target_link_libraries(fullping ${libfabric_LIBRARIES} hshm::cxx)

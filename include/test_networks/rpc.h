@@ -17,6 +17,9 @@
 #include <ifaddrs.h>
 #include <netdb.h>
 #include <netinet/in.h>
+#include <rdma/fabric.h>
+#include <rdma/fi_domain.h>
+#include <rdma/fi_endpoint.h>
 #include <sys/socket.h>
 
 #include <fstream>
@@ -157,38 +160,53 @@ class RpcContext {
 
   /** Check if an IP address is local */
   bool _IsAddressLocal(const std::string &addr) {
-    struct ifaddrs *ifAddrList = nullptr;
+    fi_info *hints = fi_allocinfo();
+    if (!hints) {
+      HELOG(kFatal, "fi_allocinfo failed");
+    }
+    hints->addr_format = FI_SOCKADDR_IN;
+
+    fi_info *info;
+    int ret = fi_getinfo(FI_VERSION(1, 9), nullptr, nullptr, 0, hints, &info);
+    if (ret) {
+      fi_freeinfo(hints);
+      HELOG(kFatal, "fi_getinfo failed: {}", fi_strerror(-ret));
+    }
+
     bool found = false;
-
-    if (getifaddrs(&ifAddrList) == -1) {
-      perror("getifaddrs");
-      return false;
-    }
-
-    for (struct ifaddrs *ifAddr = ifAddrList; ifAddr != nullptr;
-         ifAddr = ifAddr->ifa_next) {
-      if (ifAddr->ifa_addr == nullptr ||
-          ifAddr->ifa_addr->sa_family != AF_INET) {
-        continue;
-      }
-
-      struct sockaddr_in *sin =
-          reinterpret_cast<struct sockaddr_in *>(ifAddr->ifa_addr);
-      char ipAddress[INET_ADDRSTRLEN] = {0};
-      inet_ntop(AF_INET, &(sin->sin_addr), ipAddress, INET_ADDRSTRLEN);
-
-      if (addr == ipAddress) {
-        found = true;
-        break;
+    for (fi_info *cur = info; cur; cur = cur->next) {
+      if (cur->src_addr) {
+        char ip[INET_ADDRSTRLEN];
+        sockaddr_in *sin = (sockaddr_in *)cur->src_addr;
+        inet_ntop(AF_INET, &sin->sin_addr, ip, INET_ADDRSTRLEN);
+        std::string ip_str(ip);
+        if (addr == ip_str) {
+          found = true;
+          break;
+        }
       }
     }
 
-    freeifaddrs(ifAddrList);
+    fi_freeinfo(hints);
+    fi_freeinfo(info);
     return found;
   }
 
   /** Get IPv4 address from the host with "host_name" */
   std::string _GetIpAddress(const std::string &host_name) {
+    // If it's an IP address, just return it
+    if (std::count(host_name.begin(), host_name.end(), '.') == 3) {
+      bool is_ip = true;
+      for (char c : host_name) {
+        if (!(c == '.' || std::isdigit(c))) {
+          is_ip = false;
+          break;
+        }
+      }
+      if (is_ip) {
+        return host_name;
+      }
+    }
     struct hostent hostname_info = {};
     struct hostent *hostname_result;
     int hostname_error = 0;

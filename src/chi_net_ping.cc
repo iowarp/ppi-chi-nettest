@@ -98,7 +98,11 @@ int main(int argc, char **argv) {
       }
       CHI_THALLIUM->ClientInit(CHI_RPC);
       runner.PingAll<false>();
-      CHI_THALLIUM->StopAllDaemons();
+      try {
+        CHI_THALLIUM->StopAllDaemons();
+      } catch (...) {
+        exit(0);
+      }
 
       HILOG(kInfo, "Test complete: {}",
             CHI_RPC->GetRpcAddress(1, CHI_RPC->port_));

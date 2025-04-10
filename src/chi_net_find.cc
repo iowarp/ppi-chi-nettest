@@ -15,7 +15,7 @@
 
 // Function to find IP address from fabric
 std::string find_ip_from_fabric(const char* provider, const char* domain,
-                                const char* fabric_regex) {
+                                const char* fabric) {
   struct fi_info *hints, *info;
   hints = fi_allocinfo();
   hints->fabric_attr->prov_name = strdup(provider);
@@ -28,12 +28,12 @@ std::string find_ip_from_fabric(const char* provider, const char* domain,
   }
 
   std::string result;
-  std::regex pattern(fabric_regex);
   while (info) {
     if (info->src_addr && info->fabric_attr && info->fabric_attr->name) {
       // Check if fabric name matches the regex
       //   HILOG(kInfo, "{}", info->fabric_attr->name);
-      if (std::regex_search(info->fabric_attr->name, pattern)) {
+      std::string test_fabric(info->fabric_attr->name);
+      if (test_fabric == fabric) {
         char ip[INET_ADDRSTRLEN];
         struct sockaddr_in* addr = (struct sockaddr_in*)info->src_addr;
         inet_ntop(AF_INET, &(addr->sin_addr), ip, INET_ADDRSTRLEN);
@@ -52,7 +52,7 @@ std::string find_ip_from_fabric(const char* provider, const char* domain,
 int main(int argc, char* argv[]) {
   if (argc != 5) {
     std::cerr << "Usage: " << argv[0]
-              << " <provider> <domain> <regex> <hostfile>" << std::endl;
+              << " <provider> <domain> <fabric> <hostfile>" << std::endl;
     return 1;
   }
 

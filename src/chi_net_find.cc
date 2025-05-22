@@ -62,6 +62,8 @@ int main(int argc, char* argv[]) {
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   MPI_Comm_size(MPI_COMM_WORLD, &size);
 
+  HILOG(kInfo, "Beginning to find ips: {}\n", rank);
+
   // Find IP address for this rank
   std::string ip = find_ip_from_fabric(argv[1], argv[2], argv[3]);
 
@@ -89,6 +91,7 @@ int main(int argc, char* argv[]) {
       }
     }
     outfile.close();
+    HILOG(kInfo, "Saving ips: {}\n", argv[4]);
     delete[] all_ips;
   }
 
